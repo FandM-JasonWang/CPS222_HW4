@@ -132,7 +132,7 @@ int prepare(sqlite3* db, const char* query, sqlite3_stmt** stmt){
 	int rc = sqlite3_prepare_v2(db, query, -1, stmt, 0); // (db, query, ?, response/answer, ?)
 	if(rc != SQLITE_OK){
 		sqlite3_close(db);
-		throw std::runtime_error("Count not prepare database query.");
+		throw std::runtime_error("Could not prepare database query.");
 	}
 	return rc;
 }
