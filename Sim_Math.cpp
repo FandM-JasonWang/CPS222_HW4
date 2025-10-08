@@ -1,4 +1,7 @@
 
+
+// author: Programmer Intern Jordan
+
 #include <random>
 #include <stdexcept>
 #include <string>
@@ -26,7 +29,7 @@ double power(double a, int b){
 	}
 
 	// If b is negative, we flip the sign now and then later
-	// we return 1.0 "normally" computed answer for a^b
+	// we return 1.0 divided by the "normally" computed answer for a^b
 	bool needs_inversion = false;
 	if(b < 0){
 		needs_inversion = true;
@@ -41,6 +44,10 @@ double power(double a, int b){
 
 	return ans;
 }
+
+
+// https://www.geeksforgeeks.org/dsa/fast-exponention-using-bit-manipulation/
+
 
 
 int poisson(int lambda){ // lambda is the technical term, this value is the desired average
@@ -80,6 +87,9 @@ int binomial(int n, double p){
 }
 
 int percentage(int portion, int overall){
+	// returns portion / overall as a percentage
+	// for example, if portion = 16 and overall = 82
+	// then this function returns 19% = .019 = 16/82
 	double per = (portion / static_cast<double>(overall)) * 100;
 	return static_cast<int>(per);
 }
@@ -183,8 +193,7 @@ int rc = sqlite3_open("CRASH_LANCASTER_2024.db", &db); // note c_str() converts 
 	rc = prepare(db, second_sql_query, &stmt);
 
 	std::vector<int> CRNs; // Crash Record Number, like an ID for each crash
-			while((rc = sqlite3_step(stmt)) == SQLITE_ROW){
-				const int crn = sqlite3_column_int(stmt, 0); 
+			while((rc = sqlite3_step(stmt)) == SQLITE_ROW){const int crn = sqlite3_column_int(stmt, 0); 
 				CRNs.push_back(crn);
 				//cout << "CRn   : " << crn << endl;
 			}
@@ -206,8 +215,9 @@ int rc = sqlite3_open("CRASH_LANCASTER_2024.db", &db); // note c_str() converts 
 				const char* third_sql_query = "SELECT * FROM incidents WHERE CRN = ? AND DAY_OF_WEEK = ?;";
 			rc = prepare(db, third_sql_query, &stmt);
 
-			sqlite3_bind_int64(stmt, 1, CRNs.at(i)); // "bind", put CRN into query for first question mark
-			sqlite3_bind_int(stmt, 2, dow); // "bind", put day of week code into query for second question mark
+// https://sqlite.org/c3ref/bind_blob.html
+sqlite3_bind_int64(stmt, 1, CRNs.at(i)); // "bind", put CRN into query for first question mark
+sqlite3_bind_int(stmt, 2, dow); // "bind", put day of week code into query for second question mark
 			
 			while((rc = sqlite3_step(stmt)) == SQLITE_ROW){
 			//const int injury_count = sqlite3_column_int(stmt, 36);

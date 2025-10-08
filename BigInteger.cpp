@@ -3,6 +3,8 @@
 #include <iostream>
 #include <stdexcept> // for the exceptions
 
+// author: Programmer Intern Jordan
+
 
 #include "BigInteger.h"
 
@@ -190,4 +192,9 @@ bool BigInteger::operator<(const BigInteger& other) const {
 
 	return false; // They are exactly equal
 }
+
+
+//bool BigInteger::operator*(const BigInteger& other) const {
+//	// TODO: implement this
+//}
     

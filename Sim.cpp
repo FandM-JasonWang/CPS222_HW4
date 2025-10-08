@@ -1,4 +1,5 @@
 /* Sim.cpp */
+// Author: Programmer Intern Jordan (with help from my teammates! :P)
 
 #include <iostream> // cout and stuff
 #include <algorithm> // 

@@ -1,5 +1,6 @@
 // Sim_Math.
 
+// Author: Programmer Intern Jordan
 
 #ifndef SIM_MATH_H
 #define SIM_MATH_H

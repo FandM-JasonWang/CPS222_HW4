@@ -5,6 +5,9 @@
 #include "BigInteger.h"
 #include "BigInteger_Tests.h"
 
+// author: Rahm
+// 2nd author: Programmer Intern Jordan
+
 
 using namespace std;
     
