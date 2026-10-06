@@ -1,2 +1,11 @@
-# HW4
-This is the template repository for HW4 in CS3 (Traffic)
+# CPS222_HW4
+
+PennDOT traffic simulation optimization.
+
+## Build and Run
+
+```bash
+make tests && ./tests
+make all
+./traffic-simulation 604800
+```
